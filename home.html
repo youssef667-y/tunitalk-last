@@ -12,8 +12,10 @@
     <nav class="navbar">
         <div class="container">
             <a href="home.html" class="logo">
-                <img src="tunitalk.png" alt="TuniTalk">
-                <span>TuniTalk</span>
+                <img src="tunitalk.png" alt="TuniTalk" onmouseover="highlightInput(this)"
+                onmouseout="unhighlightInput(this)">
+                <span onmouseover="highlightInput(this)"
+                onmouseout="unhighlightInput(this)">TuniTalk</span>
             </a>
             <div class="nav-links">
                 <a href="home.html" class="active"><i class="fas fa-home"></i> Accueil</a>
@@ -33,11 +35,39 @@
             <h1>Bienvenue sur TuniTalk</h1>
             <p>La communauté en ligne des tunisiens pour échanger et partager</p>
             <form class="search-form">
-                <input type="text" placeholder="Rechercher dans le forum...">
-                <button type="submit"><i class="fas fa-search"></i></button>
+                <input type="text" onmouseover="highlightInput(this)"
+                onmouseout="unhighlightInput(this)" placeholder="Rechercher dans le forum...">
+                <button type="submit" onmouseover="highlightInput(this)"
+                onmouseout="unhighlightInput(this)"><i class="fas fa-search"></i></button>
             </form>
         </div>
     </header>
+    <div class="create-post" 
+     onmouseover="highlightCreatePost(this)" 
+     onmouseout="unhighlightCreatePost(this)">
+    <h2>Créer un nouveau sujet</h2>
+    <form onsubmit="return createPost(event)">
+        <input type="text" 
+               id="post-title" 
+               placeholder="Titre" 
+               required
+               onmouseover="highlightInput(this)"
+               onmouseout="unhighlightInput(this)">
+        
+        <textarea id="post-content" 
+                  placeholder="Contenu..." 
+                  required
+                  onmouseover="highlightTextarea(this)"
+                  onmouseout="unhighlightTextarea(this)"></textarea>
+        
+        <button type="submit" 
+                onclick="validateForm()"
+                onmouseover="highlightButton(this)"
+                onmouseout="unhighlightButton(this)">Publier</button>
+    </form>
+</div>
+      
+      <div id="posts-container"></div>
 
     <!-- Contenu principal -->
     <main class="container">
@@ -111,5 +141,6 @@
             </div>
         </div>
     </footer>
+    <script src="index.js"></script>
 </body>
 </html>
